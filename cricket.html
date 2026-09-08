@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+   
+    <title>Cricket game</title>
+    <STYLE>
+        body {
+            background-color: lightblue;
+            text-align: center;
+        }
+        h1 {
+            color: darkblue;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }</STYLE>
+</head>
+<body>
+    <h1> bat ball game </h1>
+    <button onclick="playGame('bat')">BAT</button>
+    
+    
+    <p id="result">Make your choice to start the game.</p>
+
+    <script>
+        function playGame(userChoice) {
+            const choices = ['bat', 'ball', 'stump'];
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            let message;
+
+            if (userChoice === computerChoice) {
+                message = 'It is a tie! Both chose ' + userChoice + '.';
+            } else if (
+                (userChoice === 'bat' && computerChoice === 'stump') ||
+                (userChoice === 'ball' && computerChoice === 'bat') ||
+                (userChoice === 'stump' && computerChoice === 'ball')
+            ) {
+                message = 'You win! Computer chose ' + computerChoice + '.';
+            } else {
+                message = 'Computer wins! Computer chose ' + computerChoice + '.';
+            }
+
+            document.getElementById('result').textContent = message;
+        }
+    </script>
+    
+    ">BAT</button>
+
+    <button onclick="playGame('ball')">BALL</button>
+    <button onclick="playGame('stump')">STUMP</button>
+</body>
+
+</html>
